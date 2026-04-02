@@ -1,16 +1,5 @@
-/**
- * Haras Herança - Main Application
- * Versão: 2.0.0
- * Descrição: Animações, validações, logs estruturados e interatividade
- * Estética: Tradicional com vibe "Saudades da Minha Terra"
- */
-
 (function() {
     'use strict';
-
-    // ============================================
-    // LOGGER ESTRUTURADO COM SEGURANÇA
-    // ============================================
 
     const LOG_LEVELS = {
         INFO: 'INFO',
@@ -91,10 +80,6 @@
         }
     };
 
-    // ============================================
-    // RATE LIMITING
-    // ============================================
-
     class RateLimiter {
         constructor(maxRequests = 3, timeWindowMs = 60000) {
             this.maxRequests = maxRequests;
@@ -123,10 +108,6 @@
             return Math.max(0, this.maxRequests - this.requests.length);
         }
     }
-
-    // ============================================
-    // VALIDAÇÕES DE INPUT
-    // ============================================
 
     const validators = {
         nome(value) {
@@ -178,10 +159,6 @@
             return { valid: true, value: value };
         }
     };
-
-    // ============================================
-    // FORMULÁRIO COM PROTEÇÕES
-    // ============================================
 
     class FormHandler {
         constructor(formId, rateLimiter) {
@@ -344,9 +321,6 @@
         }
     }
 
-    // ============================================
-    // GRÃOS DOURADOS FLUTUANTES
-    // ============================================
 
     class GoldenGrains {
         constructor() {
@@ -380,9 +354,6 @@
         }
     }
 
-    // ============================================
-    // ANIMAÇÕES DE SCROLL
-    // ============================================
 
     class ScrollAnimations {
         constructor() {
@@ -414,9 +385,6 @@
         }
     }
 
-    // ============================================
-    // BARRA DE PROGRESSO
-    // ============================================
 
     class ScrollProgress {
         constructor() {
@@ -438,10 +406,6 @@
         }
     }
 
-    // ============================================
-    // ELEMENTO DECORATIVO - FOLHA
-    // ============================================
-
     class LeafDecoration {
         constructor() {
             this.createLeaf();
@@ -462,10 +426,6 @@
             document.body.appendChild(leaf);
         }
     }
-
-    // ============================================
-    // REVELAÇÃO DE CARDS COM OBSERVER
-    // ============================================
 
     class CardReveal {
         constructor() {
@@ -498,10 +458,6 @@
         }
     }
 
-    // ============================================
-    // NAVBAR SCROLL
-    // ============================================
-
     class NavbarHandler {
         constructor() {
             this.navbar = document.querySelector('.navbar');
@@ -524,10 +480,6 @@
             }
         }
     }
-
-    // ============================================
-    // CAROUSEL COM LOGGING
-    // ============================================
 
     class CarouselHandler {
         constructor() {
@@ -553,10 +505,6 @@
         }
     }
 
-    // ============================================
-    // TRATAMENTO GLOBAL DE ERROS
-    // ============================================
-
     window.addEventListener('error', (event) => {
         logger.error('Erro global não tratado', {
             message: event.message,
@@ -571,10 +519,6 @@
             reason: event.reason?.message || event.reason
         });
     });
-
-    // ============================================
-    // INICIALIZAÇÃO DA APLICAÇÃO
-    // ============================================
 
     document.addEventListener('DOMContentLoaded', () => {
         logger.info('Haras Herança - Aplicação inicializada', {
