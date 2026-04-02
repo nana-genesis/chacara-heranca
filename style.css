@@ -1,0 +1,1149 @@
+/* ============================================
+   HARAS HERANÇA - ESTÉTICA TRADICIONAL
+   Vibe: Saudades da Minha Terra
+   Cores: Terracota, Verde Musgo, Dourado, Madeira
+   ============================================ */
+
+:root {
+    --terracota: #B85C1A;
+    --terracota-dark: #8B3E0F;
+    --verde-musgo: #5C6E4A;
+    --verde-azeitona: #4A5B36;
+    --dourado: #C4A747;
+    --dourado-escuro: #9B7E35;
+    --madeira-clara: #D9C5A7;
+    --madeira-media: #B89A6E;
+    --couro: #8B5A2B;
+    --creme: #FEF7E6;
+    --off-white: #FDF8F0;
+    --cinza-pedra: #6B6E6B;
+    --preto-suave: #2C2820;
+    
+    --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-medium: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition-fast: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--off-white);
+    color: var(--preto-suave);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.display-1, .display-2, .display-3, .display-4, .display-5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
+
+.lead, p, span, a, button, input, textarea, select {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ============================================
+   ANIMAÇÕES GLOBAIS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes borderReveal {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes leafSway {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+    50% {
+        transform: rotate(4deg) translateY(-4px);
+    }
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+}
+
+/* Classes de animação */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-on-scroll.fade-in-left {
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-on-scroll.fade-in-right {
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-on-scroll.scale-in {
+    animation: scaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ============================================
+   BARRA DE PROGRESSO
+   ============================================ */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--dourado), var(--terracota));
+    z-index: 10000;
+    transition: width 0.1s ease;
+}
+
+/* ============================================
+   HEADER E NAVEGAÇÃO
+   ============================================ */
+
+.navbar {
+    transition: var(--transition-medium);
+    padding: 1.2rem 0;
+    background: linear-gradient(180deg, rgba(44, 40, 32, 0.92) 0%, rgba(44, 40, 32, 0.7) 100%);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    padding: 0.7rem 0;
+    background: var(--preto-suave);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--dourado) !important;
+    position: relative;
+}
+
+.navbar-brand i {
+    color: var(--dourado);
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dourado);
+    transition: var(--transition-medium);
+}
+
+.navbar-brand:hover::after {
+    width: 100%;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--creme) !important;
+    margin: 0 0.8rem;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--dourado);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 70%;
+}
+
+/* ============================================
+   HERO SECTION - CAVALO AO PÔR DO SOL
+   ============================================ */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://placehold.co/1920x1080/5C3E1F/C4A747?text=Cavalo+Galopando+Ao+Por+do+Sol');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(44, 40, 32, 0.6) 50%,
+        rgba(196, 167, 71, 0.2) 100%);
+    z-index: 1;
+}
+
+.hero-sun-glow {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(196, 167, 71, 0.4) 0%, rgba(196, 167, 71, 0) 70%);
+    border-radius: 50%;
+    z-index: 2;
+    animation: sunPulse 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-water-reflection {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(180deg, rgba(196, 167, 71, 0) 0%, rgba(196, 167, 71, 0.3) 50%, rgba(196, 167, 71, 0.1) 100%);
+    z-index: 2;
+    pointer-events: none;
+    animation: waterRipple 8s ease-in-out infinite;
+}
+
+.hero-grains-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.grain {
+    position: absolute;
+    background: linear-gradient(135deg, #C4A747, #E5C56A);
+    width: 3px;
+    height: 12px;
+    border-radius: 2px;
+    opacity: 0;
+    animation: grainFloat 8s ease-in-out infinite;
+    filter: blur(0.5px);
+}
+
+.grain:nth-child(odd) {
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(135deg, #D9C5A7, #B89A6E);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(44, 40, 32, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 40px;
+    color: var(--dourado);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(196, 167, 71, 0.3);
+}
+
+.hero-badge i {
+    font-size: 0.7rem;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--creme);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-title .text-highlight {
+    color: var(--dourado);
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title .text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--dourado), transparent);
+    animation: highlightLine 1.2s ease forwards;
+    animation-delay: 0.5s;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
+    color: var(--preto-suave);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+.btn-hero-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dourado-escuro), var(--dourado));
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-hero-primary:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(196, 167, 71, 0.3);
+}
+
+.btn-hero-primary:hover::before {
+    left: 0;
+}
+
+.btn-hero-secondary {
+    background: transparent;
+    border: 2px solid var(--dourado);
+    color: var(--dourado);
+    padding: 1rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+.btn-hero-secondary:hover {
+    background: var(--dourado);
+    color: var(--preto-suave);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(196, 167, 71, 0.2);
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--creme);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-scroll-indicator span {
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.hero-scroll-indicator i {
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+/* Animações da Hero */
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+        background-position: center 30%;
+    }
+    100% {
+        transform: scale(1.08);
+        background-position: center 28%;
+    }
+}
+
+@keyframes sunPulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes waterRipple {
+    0%, 100% {
+        opacity: 0.3;
+        height: 100px;
+    }
+    50% {
+        opacity: 0.6;
+        height: 140px;
+    }
+}
+
+@keyframes grainFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-300px) rotate(45deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes highlightLine {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.animate-badge {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-title {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.animate-subtitle {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.animate-buttons {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.animate-scroll {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* ============================================
+   SEÇÃO DE TÍTULOS
+   ============================================ */
+
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.section-title h1, 
+.section-title h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--preto-suave);
+    margin-bottom: 1rem;
+}
+
+.title-decoration {
+    width: 0;
+    height: 3px;
+    background: var(--dourado);
+    margin: 1rem auto 0;
+    animation: borderReveal 0.8s ease forwards;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    background: var(--off-white);
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    transition: var(--transition-medium);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+    position: relative;
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--dourado), var(--terracota));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 2;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 28px 45px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: sepia(0.15) brightness(0.98);
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.04);
+    filter: sepia(0) brightness(1);
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--terracota);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.card-text {
+    color: var(--cinza-pedra);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.list-group-item {
+    background: transparent;
+    border: none;
+    padding: 0.7rem 0;
+    font-size: 0.85rem;
+    color: var(--preto-suave);
+    border-bottom: 1px dashed rgba(139, 90, 43, 0.12);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item i {
+    color: var(--dourado);
+    width: 28px;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.card-footer {
+    background: transparent;
+    border: none;
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 0.45rem 1.1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.badge-success {
+    background-color: var(--verde-musgo);
+}
+
+.badge-secondary {
+    background-color: var(--madeira-media);
+}
+
+.badge-dark {
+    background-color: var(--preto-suave);
+}
+
+.badge-info {
+    background-color: var(--terracota);
+}
+
+/* ============================================
+   CAROUSEL - GALERIA SECUNDÁRIA
+   ============================================ */
+
+.carousel {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    filter: sepia(0.1);
+    transition: filter 0.5s ease;
+}
+
+.carousel-item:hover img {
+    filter: sepia(0);
+}
+
+.carousel-caption {
+    background: linear-gradient(0deg, rgba(44, 40, 32, 0.7) 0%, rgba(44, 40, 32, 0.3) 100%);
+    border-radius: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.carousel-caption h2 {
+    font-size: 1.5rem;
+    color: var(--dourado);
+    margin-bottom: 0.5rem;
+}
+
+.carousel-caption p {
+    font-size: 0.85rem;
+    color: var(--creme);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 0.7;
+}
+
+.carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 6px;
+    background-color: var(--creme);
+    transition: var(--transition-fast);
+}
+
+.carousel-indicators button.active {
+    background-color: var(--dourado);
+    transform: scale(1.25);
+}
+
+/* ============================================
+   SEÇÃO DE CONTATO
+   ============================================ */
+
+.contato-section {
+    background: linear-gradient(135deg, var(--preto-suave) 0%, #1F1C18 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contato-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.04"><path fill="none" stroke="%23C4A747" stroke-width="0.6" d="M15,15 L85,15 M15,25 L85,25 M15,35 L85,35 M15,45 L85,45 M15,55 L85,55 M15,65 L85,65 M15,75 L85,75 M15,85 L85,85"/><circle cx="50" cy="50" r="18" stroke="%23C4A747" fill="none" stroke-width="0.6"/><path d="M50,30 L50,70 M30,50 L70,50" stroke="%23C4A747" stroke-width="0.6"/></svg>');
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+.contato-section .section-title h2 {
+    color: var(--dourado);
+}
+
+.contato-section .lead {
+    color: var(--madeira-clara);
+}
+
+.form-control, .form-control select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(196, 167, 71, 0.35);
+    color: var(--creme);
+    padding: 0.9rem 1.2rem;
+    border-radius: 0;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--dourado);
+    box-shadow: none;
+    outline: none;
+    color: var(--creme);
+}
+
+.form-control::placeholder,
+select.form-control {
+    color: rgba(217, 197, 167, 0.7);
+}
+
+select.form-control option {
+    background-color: var(--preto-suave);
+    color: var(--creme);
+}
+
+.btn-contato {
+    background: transparent;
+    border: 2px solid var(--dourado);
+    color: var(--dourado);
+    padding: 0.85rem 2.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btn-contato::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--dourado);
+    transition: var(--transition-medium);
+    z-index: -1;
+}
+
+.btn-contato:hover {
+    color: var(--preto-suave);
+    border-color: var(--dourado);
+}
+
+.btn-contato:hover::before {
+    left: 0;
+}
+
+/* ============================================
+   ELEMENTO DECORATIVO - FOLHA
+   ============================================ */
+
+.leaf-decoration {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: leafSway 7s ease-in-out infinite;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.leaf-decoration:hover {
+    opacity: 0.5;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    background-color: #1A1714;
+    border-top: 1px solid rgba(196, 167, 71, 0.2);
+}
+
+footer h5 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+footer .text-secondary {
+    color: #A89F8C !important;
+}
+
+footer hr {
+    opacity: 0.3;
+}
+
+/* ============================================
+   MENSAGENS DE STATUS
+   ============================================ */
+
+.alert {
+    border-radius: 0;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    animation: fadeInUp 0.3s ease;
+}
+
+.alert-success {
+    background-color: var(--verde-musgo);
+    color: var(--creme);
+}
+
+.alert-danger {
+    background-color: #B85C1A;
+    color: var(--creme);
+}
+
+.alert-info {
+    background-color: var(--dourado);
+    color: var(--preto-suave);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-sun-glow {
+        width: 180px;
+        height: 180px;
+        bottom: 10%;
+        right: 5%;
+    }
+    
+    .section-title h1,
+    .section-title h2 {
+        font-size: 2.4rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 600px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title .text-highlight::after {
+        bottom: 5px;
+    }
+    
+    .hero-buttons {
+        gap: 1rem;
+    }
+    
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .hero-sun-glow {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .nav-link {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    
+    .card:hover {
+        transform: translateY(-6px);
+    }
+    
+    .card-img-top {
+        height: 200px;
+    }
+    
+    .section-title h1,
+    .section-title h2 {
+        font-size: 1.9rem;
+    }
+    
+    .leaf-decoration {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+        opacity: 0.25;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 550px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 80%;
+        text-align: center;
+    }
+    
+    .hero-scroll-indicator {
+        bottom: 15px;
+    }
+    
+    .hero-scroll-indicator span {
+        font-size: 0.65rem;
+    }
+    
+    .btn-contato {
+        width: 100%;
+        padding: 0.75rem;
+    }
+    
+    .section-title h1,
+    .section-title h2 {
+        font-size: 1.7rem;
+    }
+    
+    .display-4 {
+        font-size: 1.8rem;
+    }
+    
+    .display-5 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================
+   ACESSIBILIDADE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+a:focus-visible,
+button:focus-visible,
+.form-control:focus-visible {
+    outline: 2px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.text-warning-custom {
+    color: var(--dourado);
+}
+
+.bg-off-white {
+    background-color: var(--off-white);
+}
