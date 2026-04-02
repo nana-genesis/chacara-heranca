@@ -1,9 +1,3 @@
-/* ============================================
-   HARAS HERANÇA - ESTÉTICA TRADICIONAL
-   Vibe: Saudades da Minha Terra
-   Cores: Terracota, Verde Musgo, Dourado, Madeira
-   ============================================ */
-
 :root {
     --terracota: #B85C1A;
     --terracota-dark: #8B3E0F;
@@ -54,9 +48,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ============================================
-   ANIMAÇÕES GLOBAIS
-   ============================================ */
 
 @keyframes fadeInUp {
     from {
@@ -125,7 +116,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Classes de animação */
 .animate-on-scroll {
     opacity: 0;
 }
@@ -152,9 +142,6 @@ h1, h2, h3, h4, h5, h6 {
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
 
-/* ============================================
-   BARRA DE PROGRESSO
-   ============================================ */
 
 .scroll-progress {
     position: fixed;
@@ -167,9 +154,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: width 0.1s ease;
 }
 
-/* ============================================
-   HEADER E NAVEGAÇÃO
-   ============================================ */
 
 .navbar {
     transition: var(--transition-medium);
@@ -241,9 +225,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 70%;
 }
 
-/* ============================================
-   HERO SECTION - CAVALO AO PÔR DO SOL
-   ============================================ */
 
 .hero-section {
     position: relative;
@@ -487,7 +468,6 @@ h1, h2, h3, h4, h5, h6 {
     animation: bounce 2s infinite;
 }
 
-/* Animações da Hero */
 @keyframes slowZoom {
     0% {
         transform: scale(1);
@@ -588,10 +568,6 @@ h1, h2, h3, h4, h5, h6 {
     animation-fill-mode: forwards;
 }
 
-/* ============================================
-   SEÇÃO DE TÍTULOS
-   ============================================ */
-
 .section-title {
     position: relative;
     margin-bottom: 3rem;
@@ -613,9 +589,6 @@ h1, h2, h3, h4, h5, h6 {
     animation: borderReveal 0.8s ease forwards;
 }
 
-/* ============================================
-   CARDS
-   ============================================ */
 
 .card {
     background: var(--off-white);
@@ -732,9 +705,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--terracota);
 }
 
-/* ============================================
-   CAROUSEL - GALERIA SECUNDÁRIA
-   ============================================ */
 
 .carousel {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
@@ -796,9 +766,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.25);
 }
 
-/* ============================================
-   SEÇÃO DE CONTATO
-   ============================================ */
 
 .contato-section {
     background: linear-gradient(135deg, var(--preto-suave) 0%, #1F1C18 100%);
@@ -891,9 +858,6 @@ select.form-control option {
     left: 0;
 }
 
-/* ============================================
-   ELEMENTO DECORATIVO - FOLHA
-   ============================================ */
 
 .leaf-decoration {
     position: fixed;
@@ -910,9 +874,6 @@ select.form-control option {
     opacity: 0.5;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 
 footer {
     background-color: #1A1714;
@@ -932,9 +893,6 @@ footer hr {
     opacity: 0.3;
 }
 
-/* ============================================
-   MENSAGENS DE STATUS
-   ============================================ */
 
 .alert {
     border-radius: 0;
@@ -959,9 +917,6 @@ footer hr {
     color: var(--preto-suave);
 }
 
-/* ============================================
-   RESPONSIVIDADE
-   ============================================ */
 
 @media (max-width: 992px) {
     .hero-title {
@@ -1114,9 +1069,6 @@ footer hr {
     }
 }
 
-/* ============================================
-   ACESSIBILIDADE
-   ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
     *,
